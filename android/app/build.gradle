@@ -76,7 +76,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    entryFile: "index.js"
+        entryFile: "index.js"
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -89,12 +89,13 @@ apply from: "../../node_modules/react-native/react.gradle"
  * Upload all the APKs to the Play Store and people will download
  * the correct one based on the CPU architecture of their device.
  */
-def enableSeparateBuildPerCPUArchitecture = false
+def enableSeparateBuildPerCPUArchitecture = true
 
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = false
+//设置为true可以减小apk大小
+def enableProguardInReleaseBuilds = true
 
 /**
  * Use international variant JavaScriptCore
@@ -121,11 +122,14 @@ android {
         versionName "1.0"
     }
     splits {
+        // x86 / x86_64: x86 架构的手机都会包含由 Intel 提供的称为 Houdini
+        //的指令集动态转码工具，实现 对 arm .so 的兼容，再考虑 x86 1% 以下的市场占有率，
+        //x86 相关的两个 .so 也是可以忽略的
         abi {
             reset()
             enable enableSeparateBuildPerCPUArchitecture
             universalApk false  // If true, also generate a universal APK
-            include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+            include "armeabi-v7a", "arm64-v8a"
         }
     }
     signingConfigs {
@@ -137,13 +141,13 @@ android {
         }
 
         release {
-                    if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
-                        storeFile file(MYAPP_RELEASE_STORE_FILE)
-                        storePassword MYAPP_RELEASE_STORE_PASSWORD
-                        keyAlias MYAPP_RELEASE_KEY_ALIAS
-                        keyPassword MYAPP_RELEASE_KEY_PASSWORD
-                    }
-                }
+            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+        }
     }
     buildTypes {
         debug {
