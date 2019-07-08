@@ -19,4 +19,4 @@
   [Tab][Tab]配置enableSeparateBuildPerCPUArchitecture可以打包出多个适合各个架构的apk，每个apk体积会很小**
   
 ### 新增插件
-**使用**
+**使用react-native-splash-screen**
