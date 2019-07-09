@@ -19,4 +19,6 @@
   [Tab][Tab]配置enableSeparateBuildPerCPUArchitecture可以打包出多个适合各个架构的apk，每个apk体积会很小**
   
 ### 新增插件
-**使用react-native-splash-screen**
+**使用react-native-splash-screen，集成的时候需要注意
+[tab][tab]在Android中的MainApplication的getPackages方法中本模块已经自动添加好了，
+[tab][tab]不需要重复添加。否则会报错（这个特性在RN0.60.0中有，其他版本不知）**
