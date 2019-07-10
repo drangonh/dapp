@@ -20,11 +20,15 @@
   
 ### 新增插件
 
-**react-native-splash-screen**
+**1、react-native-splash-screen**
 
 使用react-native-splash-screen，集成的时候需要注意
 在Android中的MainApplication的getPackages方法中本模块已经自动添加好了，
 在iOS中LaunchImage 或者 LaunchScreen.xib都可以作为启动页使用，注意使用时有两个地方需要设置(
 [集成地址：](https://www.jianshu.com/p/4540ac17dfd4))
 不需要重复添加。否则会报错（这个特性在RN0.60.0中有，其他版本不知）
+
+**2、集成react-navigation**
+
+
 
