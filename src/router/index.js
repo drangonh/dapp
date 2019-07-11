@@ -36,6 +36,9 @@ const TabNavigator = createBottomTabNavigator({
 const page = {
     Home: {
         screen: Home,
+        navigationOptions: {
+            header: null
+        }
     },
     DrawerPage: {
         screen: MyDrawerNavigator,
@@ -46,7 +49,7 @@ const page = {
 };
 
 const navigator = createStackNavigator(page, {
-    navigationOptions: {
+    defaultNavigationOptions: {
         header: null,
     },
     initialRouteName: 'Home',
