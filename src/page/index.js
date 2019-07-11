@@ -10,7 +10,7 @@
 * Fragment可以在组件中增加元素，但是不会增加多余的节点。
 * */
 
-import React, {Fragment,Component} from 'react';
+import React, {Fragment, Component} from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -18,6 +18,7 @@ import {
     View,
     Text,
     StatusBar,
+    TouchableOpacity,
 } from 'react-native';
 
 import {
@@ -59,12 +60,16 @@ export default class index extends Component {
                                     <DebugInstructions/>
                                 </Text>
                             </View>
-                            <View style={styles.sectionContainer}>
+                            <TouchableOpacity
+                                onPress={() => {
+                                    this.props.navigation.navigate('DrawerPage');
+                                }}
+                                style={styles.sectionContainer}>
                                 <Text style={styles.sectionTitle}>Learn More</Text>
                                 <Text style={styles.sectionDescription}>
                                     Read the docs to discover what to do next:
                                 </Text>
-                            </View>
+                            </TouchableOpacity>
                             <LearnMoreLinks/>
                         </View>
                     </ScrollView>

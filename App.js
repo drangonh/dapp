@@ -13,7 +13,6 @@
 import React, {Fragment, Component} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import Router from './src/router';
-
 class App extends Component {
     render() {
         SplashScreen.hide();
