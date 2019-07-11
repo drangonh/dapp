@@ -30,5 +30,59 @@
 
 **2、集成react-navigation**
 
+**注意事项**
+
+设置header隐藏，也可以在每一个screen,代码如下
+```$xslt
+const navigator = createStackNavigator(page, {
+    //设置所有的header的默认样式
+    defaultNavigationOptions: {
+        header: null,
+    },
+    initialRouteName: 'Home',
+});
+
+ Home: {
+        screen: Home,
+        navigationOptions:{
+            header: null
+        }
+    },
+```
+
+如果想在一个app中既有抽屉模式也有底部标签栏等可以如下设置
+```$xslt
+const MyDrawerNavigator = createDrawerNavigator({
+    MyHomeScreen: {
+        screen: MyHomeScreen,
+    },
+    Notifications: {
+        screen: MyNotificationsScreen,
+    },
+}, {
+    drawerWidth: 375,
+    initialRouteName: 'MyHomeScreen',
+});
+
+const TabNavigator = createBottomTabNavigator({
+    Home: HomeScreen,
+    Settings: SettingsScreen,
+});
+
+const page = {
+    Home: {
+        screen: Home,
+        navigationOptions:{
+            header: null
+        }
+    },
+    DrawerPage: {
+        screen: MyDrawerNavigator,
+    },
+    TabNavigator: {
+        screen: TabNavigator,
+    },
+};
+```
 
 

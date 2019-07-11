@@ -47,7 +47,10 @@ class MyNotificationsScreen extends React.Component {
     render() {
         return (
             <Button
-                onPress={() => this.props.navigation.goBack()}
+                onPress={() => {
+                    // this.props.navigation.goBack()
+                    this.props.navigation.navigate('TabNavigator');
+                }}
                 title="Go back home"
             />
         );
@@ -63,5 +66,5 @@ const styles = StyleSheet.create({
 
 export {
     MyHomeScreen,
-    MyNotificationsScreen
-}
+    MyNotificationsScreen,
+};

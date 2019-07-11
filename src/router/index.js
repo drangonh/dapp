@@ -36,7 +36,7 @@ const TabNavigator = createBottomTabNavigator({
 const page = {
     Home: {
         screen: Home,
-        navigationOptions: {
+        navigationOptions:{
             header: null
         }
     },
@@ -49,8 +49,9 @@ const page = {
 };
 
 const navigator = createStackNavigator(page, {
+    //设置所有的header的默认样式
     defaultNavigationOptions: {
-        header: null,
+        // header: null,
     },
     initialRouteName: 'Home',
 });
